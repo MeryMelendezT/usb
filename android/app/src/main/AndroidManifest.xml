@@ -3,6 +3,8 @@
         android:label="usb"
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon">
+        <meta-data android:name="com.google.android.geo.API_KEY"
+               android:value="AIzaSyCsoLMalmoZza4j9k3wxEwGIZsamHcsXJc"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"

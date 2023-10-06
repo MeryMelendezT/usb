@@ -1,5 +1,7 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
+import 'package:usb/app/app_router.gr.dart' as app_router;
 import 'package:usb/app/parameters_colors.dart';
 import 'package:usb/views/home/home_viewmodel.dart';
 import 'package:usb/widgets/custom_text.dart';
@@ -19,7 +21,9 @@ class HomeView extends StatelessWidget {
             elevation: 0,
             leading: IconButton(
               icon: Icon(Icons.menu),
-              onPressed: () {},
+              onPressed: () {
+                AutoRouter.of(context).push(app_router.MapUSaleViewRoute());
+              },
             ),
             actions: [
               Padding(

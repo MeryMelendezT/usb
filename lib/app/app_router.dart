@@ -3,6 +3,7 @@ import 'package:usb/views/campus/campus_view.dart';
 import 'package:usb/views/campus_in_app/campus_in_app_view.dart';
 import 'package:usb/views/home/home_view.dart';
 import 'package:usb/views/login/login_view.dart';
+import 'package:usb/views/map_usale/map_usale_view.dart';
 import 'package:usb/views/splash/splash_view.dart';
 
 @MaterialAutoRouter(
@@ -12,6 +13,7 @@ import 'package:usb/views/splash/splash_view.dart';
     AutoRoute(page: CampusInAppView, name: 'campusInAppViewRoute'),
     AutoRoute(page: LoginView, name: 'loginViewRoute'),
     AutoRoute(page: HomeView, name: 'homeViewRoute'),
+    AutoRoute(page: MapUSaleView, name: 'mapUSaleViewRoute'),
   ]
 )
 
