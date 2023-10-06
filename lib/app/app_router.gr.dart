@@ -59,7 +59,7 @@ class AppRouter extends _i6.RootStackRouter {
     HomeViewRoute.name: (routeData) {
       return _i6.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: const _i5.HomeView(),
+        child: _i5.HomeView(),
       );
     },
   };

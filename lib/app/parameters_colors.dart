@@ -10,4 +10,5 @@ class ParametersColors {
   static const textGrayColor = Color.fromRGBO(99, 112, 137, 1);
   static const textDarkColor = Color.fromRGBO(23, 50, 79, 1);
   static const textFieldColor = Color.fromRGBO(84, 87, 93, 1);
+  static const textSubTitleColor = Color.fromRGBO(98, 115, 133, 1);
 }

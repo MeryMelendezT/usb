@@ -2,16 +2,26 @@ import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:usb/app/parameters_colors.dart';
 import 'package:usb/views/home/home_viewmodel.dart';
+import 'package:usb/widgets/custom_text.dart';
 
 class HomeView extends StatelessWidget {
-  const HomeView({super.key});
+  HomeView({super.key});
+
+  final List<String> items = [
+    'Item 1',
+    'Item 2',
+    'Item 3',
+    'Item 4',
+    'Item 5',
+    // Agrega más elementos a la lista si es necesario
+  ];
 
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<HomeViewModel>.nonReactive(
       viewModelBuilder: HomeViewModel.new,
       onViewModelReady: (model) => model.initialize(context),
-      builder: (context, viewModel, child) => SafeArea(
+      builder: (context, model, child) => SafeArea(
         child: Scaffold(
           appBar: AppBar(
             backgroundColor: ParametersColors.primaryColor,
@@ -28,13 +38,72 @@ class HomeView extends StatelessWidget {
             ],
           ),
           backgroundColor: ParametersColors.backgroundColor,
-          body: SingleChildScrollView(
-            child: Column(
-              children: [
-                Text('Bienvenido'),
-                Text('Bienvenido'),
-              ],
-            ),
+          body: Column(
+            children: [
+              Padding(
+                padding: EdgeInsets.only(right: 32,left: 32, top: 40, bottom: 8),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    CustomText(text: 'Bienvenido', color: ParametersColors.textDarkColor, fontSize: 24, fontWeight: FontWeight.w600),
+                    CustomText(text: 'Que deseas hacer?', color: ParametersColors.textSubTitleColor, fontSize: 16, fontWeight: FontWeight.w500),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 150,
+                child: ListView.builder(
+                  primary: true,
+                  shrinkWrap: true,
+                  scrollDirection: Axis.horizontal,
+                  itemCount: items.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return Container(
+                      width: 150.0, // Ancho de cada elemento en la lista
+                      margin: EdgeInsets.symmetric(horizontal: 5.0),
+                      color: Colors.blue,
+                      child: Center(
+                        child: Text(
+                          items[index],
+                          style: TextStyle(color: Colors.white, fontSize: 20.0),
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Expanded(
+                child: GridView.builder(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2, // 2 elementos por fila
+                    crossAxisSpacing: 5, // Espacio horizontal entre elementos
+                    mainAxisSpacing: 10, // Espacio vertical entre elementos
+                    mainAxisExtent: 150,
+                  ),
+                  itemBuilder: (BuildContext context, int index) {
+                    // En este ejemplo, creamos celdas simples con un número.
+                    return Card(
+                      color: ParametersColors.accentColor,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0), // Radio de las esquinas redondeadas
+                      ),
+                      child: Center(
+                        child: CustomText(
+                          color: ParametersColors.textDarkColor,
+                          fontSize: 48,
+                          fontWeight: FontWeight.w600,
+                          text: model.cards[index]['name'],
+                        )
+                      ),
+                    );
+                  },
+                  itemCount: model.cards.length,
+                )
+              )
+            ],
           ),
         )
       ),

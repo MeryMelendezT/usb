@@ -7,10 +7,16 @@ import 'package:usb/app/parameters_colors.dart';
 import 'package:usb/views/login/login_viewmodel.dart';
 import 'package:usb/widgets/custom_text.dart';
 
-class LoginView extends StatelessWidget {
+class LoginView extends StatefulWidget {
   LoginView({super.key});
 
+  @override
+  State<LoginView> createState() => _LoginViewState();
+}
+
+class _LoginViewState extends State<LoginView> {
   bool _isPasswordVisible = false;
+
   bool _rememberMe = false;
 
   @override
@@ -57,6 +63,17 @@ class LoginView extends StatelessWidget {
                           children: [
                             CustomText(text: 'Nombre de usuario', color: ParametersColors.textFieldColor, fontSize: 14, fontWeight: FontWeight.w400,),
                             TextFormField(
+                              decoration: const InputDecoration(
+                                filled: true,
+                                fillColor: Colors.white,
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: ParametersColors.primaryColor, width: 0),
+                                ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Colors.white, width: 0),
+                                ),
+                                hintText: 'Ingrese su usuario',
+                              ),
                               validator: (value) {
                                 // add email validation
                                 if (value == null || value.isEmpty) {
@@ -68,10 +85,6 @@ class LoginView extends StatelessWidget {
                                 }
                                 return null;
                               },
-                              decoration: const InputDecoration(
-                                hintText: 'Ingrese su usuario',
-                                border: OutlineInputBorder(),
-                              ),
                             )
                           ]
                         ),
@@ -81,32 +94,40 @@ class LoginView extends StatelessWidget {
                           children: [
                             CustomText(text: 'Contraseña', color: ParametersColors.textFieldColor, fontSize: 14, fontWeight: FontWeight.w400),
                             TextFormField(
+                              decoration: InputDecoration(
+                                filled: true,
+                                fillColor: Colors.white,
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: ParametersColors.primaryColor, width: 0),
+                                ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Colors.white, width: 0),
+                                ),
+                                hintText: 'Ingrese su contraseña',
+                                suffixIcon: IconButton(
+                                  icon: Icon(
+                                    _isPasswordVisible ? Icons.visibility : Icons.visibility_off,
+                                    color: Colors.grey, // You can set the color you prefer
+                                  ),
+                                  onPressed: () {
+                                    setState(() {
+                                      _isPasswordVisible = !_isPasswordVisible;
+                                    });
+                                  },
+                                ),
+                              ),
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
-                                  return 'Ingrese algún texto';
+                                  return 'Ingrese alguna contraseña';
                                 }
                                 if (value.length < 6) {
-                                  return 'La contraseña debe tener almenos 6 caracteres';
+                                  return 'La contraseña debe tener al menos 6 caracteres';
                                 }
                                 return null;
                               },
                               obscureText: !_isPasswordVisible,
-                              decoration: InputDecoration(
-                                hintText: 'Ingrese su contraseña',
-                                border: const OutlineInputBorder(),
-                                suffixIcon: IconButton(
-                                  icon: Icon(_isPasswordVisible
-                                      ? Icons.visibility_off
-                                      : Icons.visibility),
-                                  onPressed: () {
-                                    // setState(() {
-                                    //   _isPasswordVisible =
-                                    //       !_isPasswordVisible;
-                                    // });
-                                  },
-                                )
-                              ),
                             ),
+
                           ]
                         ),
                         const SizedBox(height: 15),
@@ -114,9 +135,9 @@ class LoginView extends StatelessWidget {
                           value: _rememberMe,
                           onChanged: (value) {
                             if (value == null) return;
-                            // setState(() {
-                            //   _rememberMe = value;
-                            // });
+                            setState(() {
+                              _rememberMe = value;
+                            });
                           },
                           title: const Text('Recordarme'),
                           controlAffinity: ListTileControlAffinity.leading,
