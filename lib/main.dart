@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
       child: OverlaySupport(
         child: MaterialApp.router(
           debugShowCheckedModeBanner: false,
-          title: Parameters.acronymProject,
+          title: ParametersApp.acronymProject,
           localizationsDelegates: [
             GlobalMaterialLocalizations.delegate,
             GlobalCupertinoLocalizations.delegate,

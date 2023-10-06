@@ -1,5 +1,5 @@
-class Parameters {
-  Parameters._();
+class ParametersApp {
+  ParametersApp._();
 
   static const String acronymProject = 'usb';
   static const String nameProject = 'UNIVERSIDAD SALESIANA DE BOLIVIA';
