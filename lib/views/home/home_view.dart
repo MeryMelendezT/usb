@@ -7,15 +7,6 @@ import 'package:usb/widgets/custom_text.dart';
 class HomeView extends StatelessWidget {
   HomeView({super.key});
 
-  final List<String> items = [
-    'Item 1',
-    'Item 2',
-    'Item 3',
-    'Item 4',
-    'Item 5',
-    // Agrega más elementos a la lista si es necesario
-  ];
-
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<HomeViewModel>.nonReactive(
@@ -51,20 +42,20 @@ class HomeView extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 150,
+                height: 175,
                 child: ListView.builder(
                   primary: true,
                   shrinkWrap: true,
                   scrollDirection: Axis.horizontal,
-                  itemCount: items.length,
+                  itemCount: model.items.length,
                   itemBuilder: (BuildContext context, int index) {
                     return Container(
-                      width: 150.0, // Ancho de cada elemento en la lista
+                      width: 175.0, // Ancho de cada elemento en la lista
                       margin: EdgeInsets.symmetric(horizontal: 5.0),
                       color: Colors.blue,
                       child: Center(
                         child: Text(
-                          items[index],
+                          model.items[index],
                           style: TextStyle(color: Colors.white, fontSize: 20.0),
                         ),
                       ),
