@@ -11,37 +11,38 @@
 // ignore_for_file: type=lint
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:auto_route/auto_route.dart' as _i7;
-import 'package:flutter/material.dart' as _i8;
+import 'package:auto_route/auto_route.dart' as _i8;
+import 'package:flutter/material.dart' as _i9;
 
 import '../views/campus/campus_view.dart' as _i2;
 import '../views/campus_in_app/campus_in_app_view.dart' as _i3;
 import '../views/home/home_view.dart' as _i5;
 import '../views/login/login_view.dart' as _i4;
 import '../views/map_usale/map_usale_view.dart' as _i6;
+import '../views/profile/profile_view.dart' as _i7;
 import '../views/splash/splash_view.dart' as _i1;
 
-class AppRouter extends _i7.RootStackRouter {
-  AppRouter([_i8.GlobalKey<_i8.NavigatorState>? navigatorKey])
+class AppRouter extends _i8.RootStackRouter {
+  AppRouter([_i9.GlobalKey<_i9.NavigatorState>? navigatorKey])
       : super(navigatorKey);
 
   @override
-  final Map<String, _i7.PageFactory> pagesMap = {
+  final Map<String, _i8.PageFactory> pagesMap = {
     SplashViewRoute.name: (routeData) {
-      return _i7.MaterialPageX<dynamic>(
+      return _i8.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i1.SplashView(),
       );
     },
     CampusViewRoute.name: (routeData) {
-      return _i7.MaterialPageX<dynamic>(
+      return _i8.MaterialPageX<dynamic>(
         routeData: routeData,
         child: _i2.CampusView(),
       );
     },
     CampusInAppViewRoute.name: (routeData) {
       final args = routeData.argsAs<CampusInAppViewRouteArgs>();
-      return _i7.MaterialPageX<dynamic>(
+      return _i8.MaterialPageX<dynamic>(
         routeData: routeData,
         child: _i3.CampusInAppView(
           key: args.key,
@@ -52,7 +53,7 @@ class AppRouter extends _i7.RootStackRouter {
     LoginViewRoute.name: (routeData) {
       final args = routeData.argsAs<LoginViewRouteArgs>(
           orElse: () => const LoginViewRouteArgs());
-      return _i7.MaterialPageX<dynamic>(
+      return _i8.MaterialPageX<dynamic>(
         routeData: routeData,
         child: _i4.LoginView(key: args.key),
       );
@@ -60,55 +61,65 @@ class AppRouter extends _i7.RootStackRouter {
     HomeViewRoute.name: (routeData) {
       final args = routeData.argsAs<HomeViewRouteArgs>(
           orElse: () => const HomeViewRouteArgs());
-      return _i7.MaterialPageX<dynamic>(
+      return _i8.MaterialPageX<dynamic>(
         routeData: routeData,
         child: _i5.HomeView(key: args.key),
       );
     },
     MapUSaleViewRoute.name: (routeData) {
-      return _i7.MaterialPageX<dynamic>(
+      return _i8.MaterialPageX<dynamic>(
         routeData: routeData,
         child: _i6.MapUSaleView(),
+      );
+    },
+    ProfileViewRoute.name: (routeData) {
+      return _i8.MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const _i7.ProfileView(),
       );
     },
   };
 
   @override
-  List<_i7.RouteConfig> get routes => [
-        _i7.RouteConfig(
+  List<_i8.RouteConfig> get routes => [
+        _i8.RouteConfig(
           SplashViewRoute.name,
-          path: '/',
+          path: '/splash-view',
         ),
-        _i7.RouteConfig(
+        _i8.RouteConfig(
           CampusViewRoute.name,
           path: '/campus-view',
         ),
-        _i7.RouteConfig(
+        _i8.RouteConfig(
           CampusInAppViewRoute.name,
           path: '/campus-in-app-view',
         ),
-        _i7.RouteConfig(
+        _i8.RouteConfig(
           LoginViewRoute.name,
           path: '/login-view',
         ),
-        _i7.RouteConfig(
+        _i8.RouteConfig(
           HomeViewRoute.name,
           path: '/home-view',
         ),
-        _i7.RouteConfig(
+        _i8.RouteConfig(
           MapUSaleViewRoute.name,
           path: '/map-usale-view',
+        ),
+        _i8.RouteConfig(
+          ProfileViewRoute.name,
+          path: '/',
         ),
       ];
 }
 
 /// generated route for
 /// [_i1.SplashView]
-class SplashViewRoute extends _i7.PageRouteInfo<void> {
+class SplashViewRoute extends _i8.PageRouteInfo<void> {
   const SplashViewRoute()
       : super(
           SplashViewRoute.name,
-          path: '/',
+          path: '/splash-view',
         );
 
   static const String name = 'SplashViewRoute';
@@ -116,7 +127,7 @@ class SplashViewRoute extends _i7.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i2.CampusView]
-class CampusViewRoute extends _i7.PageRouteInfo<void> {
+class CampusViewRoute extends _i8.PageRouteInfo<void> {
   const CampusViewRoute()
       : super(
           CampusViewRoute.name,
@@ -128,9 +139,9 @@ class CampusViewRoute extends _i7.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i3.CampusInAppView]
-class CampusInAppViewRoute extends _i7.PageRouteInfo<CampusInAppViewRouteArgs> {
+class CampusInAppViewRoute extends _i8.PageRouteInfo<CampusInAppViewRouteArgs> {
   CampusInAppViewRoute({
-    _i8.Key? key,
+    _i9.Key? key,
     required String link,
   }) : super(
           CampusInAppViewRoute.name,
@@ -150,7 +161,7 @@ class CampusInAppViewRouteArgs {
     required this.link,
   });
 
-  final _i8.Key? key;
+  final _i9.Key? key;
 
   final String link;
 
@@ -162,8 +173,8 @@ class CampusInAppViewRouteArgs {
 
 /// generated route for
 /// [_i4.LoginView]
-class LoginViewRoute extends _i7.PageRouteInfo<LoginViewRouteArgs> {
-  LoginViewRoute({_i8.Key? key})
+class LoginViewRoute extends _i8.PageRouteInfo<LoginViewRouteArgs> {
+  LoginViewRoute({_i9.Key? key})
       : super(
           LoginViewRoute.name,
           path: '/login-view',
@@ -176,7 +187,7 @@ class LoginViewRoute extends _i7.PageRouteInfo<LoginViewRouteArgs> {
 class LoginViewRouteArgs {
   const LoginViewRouteArgs({this.key});
 
-  final _i8.Key? key;
+  final _i9.Key? key;
 
   @override
   String toString() {
@@ -186,8 +197,8 @@ class LoginViewRouteArgs {
 
 /// generated route for
 /// [_i5.HomeView]
-class HomeViewRoute extends _i7.PageRouteInfo<HomeViewRouteArgs> {
-  HomeViewRoute({_i8.Key? key})
+class HomeViewRoute extends _i8.PageRouteInfo<HomeViewRouteArgs> {
+  HomeViewRoute({_i9.Key? key})
       : super(
           HomeViewRoute.name,
           path: '/home-view',
@@ -200,7 +211,7 @@ class HomeViewRoute extends _i7.PageRouteInfo<HomeViewRouteArgs> {
 class HomeViewRouteArgs {
   const HomeViewRouteArgs({this.key});
 
-  final _i8.Key? key;
+  final _i9.Key? key;
 
   @override
   String toString() {
@@ -210,7 +221,7 @@ class HomeViewRouteArgs {
 
 /// generated route for
 /// [_i6.MapUSaleView]
-class MapUSaleViewRoute extends _i7.PageRouteInfo<void> {
+class MapUSaleViewRoute extends _i8.PageRouteInfo<void> {
   const MapUSaleViewRoute()
       : super(
           MapUSaleViewRoute.name,
@@ -218,4 +229,16 @@ class MapUSaleViewRoute extends _i7.PageRouteInfo<void> {
         );
 
   static const String name = 'MapUSaleViewRoute';
+}
+
+/// generated route for
+/// [_i7.ProfileView]
+class ProfileViewRoute extends _i8.PageRouteInfo<void> {
+  const ProfileViewRoute()
+      : super(
+          ProfileViewRoute.name,
+          path: '/',
+        );
+
+  static const String name = 'ProfileViewRoute';
 }
