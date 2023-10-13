@@ -75,7 +75,7 @@ class AppRouter extends _i8.RootStackRouter {
     ProfileViewRoute.name: (routeData) {
       return _i8.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: const _i7.ProfileView(),
+        child: _i7.ProfileView(),
       );
     },
   };
