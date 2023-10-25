@@ -1,6 +1,8 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
+import 'package:usb/app/app_router.gr.dart' as app_router;
 import 'package:usb/app/parameters_colors.dart';
 import 'package:usb/views/notes/notes_viewmodel.dart';
 
@@ -22,9 +24,14 @@ class NotesView extends StatelessWidget {
               onPressed: () {},
             ),
             actions: [
-              Padding(
-                padding: const EdgeInsets.only(right: 8.0),
-                child: Image.asset('assets/images/logo_usb.png', width: 30, height: 30),
+              GestureDetector(
+                onTap: () {
+                  AutoRouter.of(context).push(app_router.ProfileViewRoute());
+                },
+                child: Padding(
+                  padding: const EdgeInsets.only(right: 8.0),
+                  child: Image.asset('assets/images/logo_usb.png', width: 30, height: 30),
+                ),
               )
             ],
           ),

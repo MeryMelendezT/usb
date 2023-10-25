@@ -108,7 +108,7 @@ class AppRouter extends _i10.RootStackRouter {
         ),
         _i10.RouteConfig(
           FaqViewRoute.name,
-          path: '/',
+          path: '/faq-view',
         ),
         _i10.RouteConfig(
           HomeViewRoute.name,
@@ -116,7 +116,7 @@ class AppRouter extends _i10.RootStackRouter {
         ),
         _i10.RouteConfig(
           LoginViewRoute.name,
-          path: '/login-view',
+          path: '/',
         ),
         _i10.RouteConfig(
           MapUSaleViewRoute.name,
@@ -190,7 +190,7 @@ class FaqViewRoute extends _i10.PageRouteInfo<void> {
   const FaqViewRoute()
       : super(
           FaqViewRoute.name,
-          path: '/',
+          path: '/faq-view',
         );
 
   static const String name = 'FaqViewRoute';
@@ -226,7 +226,7 @@ class LoginViewRoute extends _i10.PageRouteInfo<LoginViewRouteArgs> {
   LoginViewRoute({_i11.Key? key})
       : super(
           LoginViewRoute.name,
-          path: '/login-view',
+          path: '/',
           args: LoginViewRouteArgs(key: key),
         );
 

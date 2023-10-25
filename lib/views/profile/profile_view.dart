@@ -27,9 +27,14 @@ class ProfileView extends StatelessWidget {
               },
             ),
             actions: [
-              Padding(
-                padding: const EdgeInsets.only(right: 8.0),
-                child: Image.asset('assets/images/logo_usb.png', width: 30, height: 30),
+              GestureDetector(
+                onTap: () {
+                  AutoRouter.of(context).push(app_router.FaqViewRoute());
+                },
+                child: Padding(
+                  padding: const EdgeInsets.only(right: 8.0),
+                  child: Image.asset('assets/images/logo_usb.png', width: 30, height: 30),
+                ),
               )
             ],
           ),

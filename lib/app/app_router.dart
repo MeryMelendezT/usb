@@ -13,9 +13,9 @@ import 'package:usb/views/splash/splash_view.dart';
   routes: <AutoRoute>[
     AutoRoute(page: CampusView, name: 'campusViewRoute'),
     AutoRoute(page: CampusInAppView, name: 'campusInAppViewRoute'),
-    AutoRoute(page: FaqView, initial: true, name: 'faqViewRoute'),
+    AutoRoute(page: FaqView, name: 'faqViewRoute'),
     AutoRoute(page: HomeView, name: 'homeViewRoute'),
-    AutoRoute(page: LoginView, name: 'loginViewRoute'),
+    AutoRoute(page: LoginView, initial: true, name: 'loginViewRoute'),
     AutoRoute(page: MapUSaleView, name: 'mapUSaleViewRoute'),
     AutoRoute(page: NotesView, name: 'notesViewRoute'),
     AutoRoute(page: ProfileView, name: 'profileViewRoute'),

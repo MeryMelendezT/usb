@@ -1,8 +1,10 @@
 import 'dart:async';
 
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:stacked/stacked.dart';
+import 'package:usb/app/app_router.gr.dart' as app_router;
 import 'package:usb/app/parameters_colors.dart';
 import 'package:usb/views/map_usale/map_usale_viewmodel.dart';
 import 'package:usb/widgets/custom_text.dart';
@@ -36,9 +38,14 @@ class _MapUSaleViewState extends State<MapUSaleView> {
               onPressed: () {},
             ),
             actions: [
-              Padding(
-                padding: const EdgeInsets.only(right: 8.0),
-                child: Image.asset('assets/images/logo_usb.png', width: 30, height: 30),
+              GestureDetector(
+                onTap: () {
+                  AutoRouter.of(context).push(app_router.NotesViewRoute());
+                },
+                child: Padding(
+                  padding: const EdgeInsets.only(right: 8.0),
+                  child: Image.asset('assets/images/logo_usb.png', width: 30, height: 30),
+                ),
               )
             ],
           ),
